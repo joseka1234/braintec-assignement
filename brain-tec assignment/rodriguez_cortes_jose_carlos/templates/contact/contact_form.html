@@ -1,0 +1,68 @@
+{% extends 'base.html' %}
+{% block title %}Create Contact{% endblock %}
+{% block selected_create %}active{% endblock %}
+{% block header %}
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <div class="row">
+        <h1>Create Contact Form</h1>
+    </div>
+    <div class="row">
+        <form method="post">
+            <!-- Name -->
+            <div class="form-group">
+                <label for="firstname">First Name</label>
+                <input class="form-control" name="firstname" id="firstname" placeholder="E.g.: Agapito" size="100"
+                    required>
+            </div>
+
+            <!-- Last Name -->
+            <div class="form-group">
+                <label for="lastname">Last Name</label>
+                <input class="form-control" name="lastname" id="lastname" placeholder="E.g.: Afonso Peña" size="100"
+                    required>
+            </div>
+
+            <!-- Email -->
+            <div class="form-group">
+                <label for="email">E-Mail</label>
+                <input type="email" class="form-control" name="email" id="email" placeholder="E.g.: test@test.com"
+                    pattern="^.+@.+\..+$" size="100" required>
+            </div>
+
+            <!-- Phone -->
+            <div class="form-group">
+                <label for="phone">Phone Number</label>
+                <input type="tel" class="form-control" name="phone" id="phone" placeholder="E.g.: 666999666"
+                    pattern="^\+*[-\s()0-9]+$" size="30">
+            </div>
+
+            <!-- Address -->
+            <div class="form-group">
+                <label for="address">Address</label>
+                <input class="form-control" name="address" id="address" placeholder="E.g.: C\Cheesecake, Nº 42"
+                    size="200">
+            </div>
+            <div>
+                <input id="input_button" type="submit" value="Submit" class="btn btn-primary" disabled>
+                <small id="message_correct_data" class="invisible">All data is correct.</small>
+
+            </div>
+        </form>
+    </div>
+
+    <div class="row">
+        <h1>Create Contact By XML</h1>
+    </div>
+
+    <div class="row">
+        <form id="xml_form" name="xml_form" action="{{ url_for('upload_xml.upload_xml') }}" method="POST"
+            enctype="multipart/form-data">
+            <input id="xml_file" type="file" name="xml_file" accept=".xml"/>
+        </form>
+    </div>
+</div>
+<script type=text/javascript src="{{url_for('static', filename='js/contact_form.js') }}"></script>
+{% endblock %}

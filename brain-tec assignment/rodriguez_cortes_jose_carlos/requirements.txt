@@ -1,0 +1,5 @@
+flask==1.1.2
+mysql.connector.python
+pytest
+coverage
+defusedxml
